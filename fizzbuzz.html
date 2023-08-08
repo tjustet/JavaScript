@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero = 0;
+        while (numero <= 100) {
+            let num3 = numero/3;
+            let num5 = numero/5;
+            if (num3 % 1 == 0) {
+                if (num5 % 1 == 0) {
+                    console.log('fizz buzz, ')
+                } else (console.log('fizz, '))
+            } else if (num5 % 1 == 0) {
+                console.log('buzz, ')
+            } else console.log(numero)
+            numero++;
+        }
+    </script>
+</body>
+</html>

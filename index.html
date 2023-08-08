@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <script>
+        var nombreplayer = prompt('Introduzca su nombre')
+        alert('Bienvenido a esta nueva aventura ' + nombreplayer)
+
+        var arma = prompt('Muy bien soldado, arranquemos nuestra aventura, que arma quieres llevar: espada pesada o dagas')
+        var lugar = prompt('Muy bien elegiste ' + arma.toLowerCase() + ' a donde quieres ir: bosque, cueva')
+        if (lugar.toLowerCase() == 'bosque'){
+            var ruido = prompt('Se escuchan dos ruidos muy fuertes, uno es de socorro y la otra de un dragon, a cual vamos?: socorro, dragon')
+            if (ruido.toLowerCase() == 'socorro' && arma.toLowerCase() == 'espada larga'){
+                alert('Raios, se esta quemando el bosque y llegara a la granja tenemos que buscar ayuda de un mago a la aldea')
+                alert('Tu espada es demaciado pesada por lo que llegamos tarde y se quemaron la mitad de la granja')
+            } else if (ruido.toLowerCase() == 'socorro' && arma.toLowerCase() =='dagas'){
+                alert('Raios, se esta quemando el bosque y llegara a la granja tenemos que buscar ayuda de un mago a la aldea')
+                alert('Tus dagas son ligeras por lo que fue facil desplazarse y llegamos a tiempo, no hubo daños')
+            } else if (ruido.toLowerCase() == 'dragon' && arma.toLowerCase() == 'espada larga'){
+                alert('NOS ENCONTRAMOS UN DRAGON ROJO, es tu momento de lucirte y demostrarme tus habilidades')
+                alert('Al llevar la espada pesada derrotarlo no fue tan complicado y te empiezan a llevar a misiones de cazeria')
+            } else if (ruido.toLowerCase() == 'dragon' && arma.toLowerCase() =='dagas'){
+                alert('NOS ENCONTRAMOS UN DRAGON ROJO, es tu momento de lucirte y demostrarme tus habilidades')
+                alert('Al llevar las dagas fue muy complicarlo matarlo pero tu rapideza te ayudo, el dragon huyo gracias a tu compañero, fue una buena pelea... no?')
+            }
+        } else if (lugar.toLowerCase() == 'cueva'){
+            var destino = prompt('Caminamos un largo rato, que quieres hacer seguir o descansar?')
+            if (destino.toLowerCase() == 'seguir'){
+                alert('Quieres seguir, me encanta su entusiasmo!')
+                var sino = prompt('Seguimos caminando pero no hay nada, quieres seguir? si/no')
+                if (sino.toLowerCase() == 'si'){
+                    alert('Sigamos no mas entonces')
+                    if (arma.toLowerCase() == 'espada larga') {
+                        alert ('Seguimos adelante y... OH NO UNA EMBOSCADA DE DUENDES, A LAS ARMAS')
+                        alert('Al llevar la espada pesada es dificil manejarla en la cueva ya que te chocas con las paredes, tuvimos que huir y dejamos muchas cosas detras, RAIOS')
+                    } else if (arma.toLowerCase() == 'dagas'){
+                        alert ('Seguimos adelante y... OH NO UNA EMBOSCADA DE DUENDES, A LAS ARMAS')
+                        alert('Al llevar las dagas fue facil manejarlas y moverte libremente por la cueva, pudimos acabar con todos y adueñarnos de sus tesoros')
+                    } 
+                }
+                if (sino.toLowerCase() == 'no') {
+                    if (arma == 'espada larga') {
+                        alert ('Nos vamos a tomar un pequeño descanso y... OH NO UNA EMBOSCADA DE DUENDES, A LAS ARMAS')
+                        alert('Al llevar la espada pesada es dificil manejarla en la cueva ya que te chocas con las paredes, tuvimos que huir y dejamos muchas cosas detras, RAIOS')
+                    } else if (arma.toLowerCase() == 'dagas'){
+                        alert ('Nos vamos a tomar un pequeño descanso y... OH NO UNA EMBOSCADA DE DUENDES, A LAS ARMAS')
+                        alert('Al llevar las dagas fue facil manejarlas y moverte libremente por la cueva, pudimos acabar con todos y adueñarnos de sus tesoros')
+                    } 
+                }
+            } else if (destino.toLowerCase() == 'descansar'){
+                if (arma.toLowerCase() == 'espada larga') {
+                    alert ('Nos vamos a tomar un pequeño descanso y... OH NO UNA EMBOSCADA DE DUENDES, A LAS ARMAS')
+                    alert('Al llevar la espada pesada es dificil manejarla en la cueva ya que te chocas con las paredes, tuvimos que huir y dejamos muchas cosas detras, RAIOS')
+                    } else if (arma.toLowerCase() == 'dagas'){
+                        alert ('Nos vamos a tomar un pequeño descanso y... OH NO UNA EMBOSCADA DE DUENDES, A LAS ARMAS')
+                        alert('Al llevar las dagas fue facil manejarlas y moverte libremente por la cueva, pudimos acabar con todos y adueñarnos de sus tesoros')
+                    } 
+                }
+            }
+
+
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>
