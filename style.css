@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    text-align: center;
+    background-color: rgb(68, 38, 0);
+}
+
+.titulo{
+    margin: 20px 20px;
+    color: white;
+}
+
+.divtareas{
+    display: flex;
+    justify-content: center;
+}
+
+.tareas{
+    height: 100px;
+    width: 400px;
+}
+
+.btnagregar{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 25px;
+
+}
+
+.btnagregar:hover{
+    transition: 1s;
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.divtable{
+    margin-top: 25px;
+    margin-left: 15%;
+}
+
+td{
+    background-color: aqua;
+    
+}
+
+.tabledat{
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.822);
+  }
+
+li{
+    border: solid 1px;
+}
+

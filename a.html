@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="titulo">Lista de Tareas</h1>
+  <div class="divtareas">
+    <textarea class="tareas" id="tareas" type="text" placeholder="Escribe una nueva tarea"></textarea>
+    <button class="btnagregar" id="btnagregar">Agregar</button>
+  </div>
+<div class="divtable">
+  <table class='tabledat'>
+    <thead>
+        <tr>
+            <th class="titulo">Lista de Tareas</th>
+            <th class="titulo">Cantidad</th>
+            <th class="titulo">Terminado</th>
+        </tr>
+    </thead>
+    <tr>
+      <td id="listaTareas">
+      </td>
+      <td id="cantidades">
+      </td>
+      <td id="terminado">
+      </td>
+    </tr>
+</div>
+
+
+
+
+
+  <script>
+  var inputTarea = document.getElementById("tareas");
+  var botonAgregar = document.getElementById("btnagregar");
+  var listaTareas = document.getElementById("listaTareas");
+  var cantidades = document.getElementById("cantidades");
+  var cantidad = 0
+  var terminado = document.getElementById("terminado");
+
+  function agregarTarea() {
+    var tareaTexto = inputTarea.value;
+    if (tareaTexto.trim() !== "") {
+      cantidad ++;
+      var nuevaTarea = document.createElement("li");
+      var nuevaCantidad = document.createElement("li");
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      nuevaTarea.textContent = tareaTexto;
+      nuevaCantidad.textContent = cantidad;
+
+      listaTareas.appendChild(nuevaTarea);
+      cantidades.appendChild(nuevaCantidad);
+      terminado.appendChild(checkbox);
+      inputTarea.value = "";
+    }
+  }
+
+  botonAgregar.addEventListener("click", agregarTarea);
+
+  inputTarea.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      agregarTarea();
+    }
+  });
+  </script>
+
+  
+</body>
+</html>
