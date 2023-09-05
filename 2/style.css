@@ -60,3 +60,11 @@ li{
     border: solid 1px;
 }
 
+.array{
+    display: block;
+}
+
+#parray{
+    color: white;
+    font-size: 50px;
+}

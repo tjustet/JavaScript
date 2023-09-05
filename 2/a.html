@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +7,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 class="titulo">Lista de Tareas</h1>
-  <div class="divtareas">
-    <textarea class="tareas" id="tareas" type="text" placeholder="Escribe una nueva tarea"></textarea>
-    <button class="btnagregar" id="btnagregar">Agregar</button>
+<!-- <div>
+    <h1 class="titulo">Lista de Tareas</h1>
+    <div class="divtareas">
+      <textarea class="tareas" id="tareas" type="text" placeholder="Escribe una nueva tarea"></textarea>
+      <button class="btnagregar" id="btnagregar">Agregar</button>
+    </div>
+  <div class="divtable">
+    <table class='tabledat'>
+      <thead>
+          <tr>
+              <th class="titulo">Lista de Tareas</th>
+              <th class="titulo">Cantidad</th>
+              <th class="titulo">Terminado</th>
+          </tr>
+      </thead>
+      <tr>
+        <td id="listaTareas">
+        </td>
+        <td id="cantidades">
+        </td>
+        <td id="terminado">
+        </td>
+      </tr>
   </div>
-<div class="divtable">
-  <table class='tabledat'>
-    <thead>
-        <tr>
-            <th class="titulo">Lista de Tareas</th>
-            <th class="titulo">Cantidad</th>
-            <th class="titulo">Terminado</th>
-        </tr>
-    </thead>
-    <tr>
-      <td id="listaTareas">
-      </td>
-      <td id="cantidades">
-      </td>
-      <td id="terminado">
-      </td>
-    </tr>
+</div> -->
+
+<div class="array">
+  <input type="number" id="numeroarray" placeholder="Numero">
+  <button class="btnagregar" id="cantidadarray">mostrar</button>
+  <button class="btnagregar" id="existearray">existe</button>
+  <button class="btnagregar" id="agregararray">agregar</button>
+  <button class="btnagregar" id="eliminararray">Eliminar</button>
+
+  <p id="parray"></p>
 </div>
 
 
 
-
-
   <script>
-  var inputTarea = document.getElementById("tareas");
+/*   var inputTarea = document.getElementById("tareas");
   var botonAgregar = document.getElementById("btnagregar");
   var listaTareas = document.getElementById("listaTareas");
   var cantidades = document.getElementById("cantidades");
@@ -68,7 +78,73 @@
     if (event.key === "Enter") {
       agregarTarea();
     }
-  });
+  }); */
+
+
+
+  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var cantidadarray = document.getElementById("cantidadarray");
+  var existearray = document.getElementById("existearray");
+  var agregararray = document.getElementById("agregararray");
+  var eliminararray = document.getElementById("eliminararray");
+  var eliminarinputarray = parseInt(document.getElementById('numeroarray').value);
+  var inputarray = document.getElementById("numeroarray");
+  var parray = document.getElementById("parray");
+
+/* muestra el contenido del array */
+  function mostrararray() {
+    var numero = 0;
+    while(parray.firstChild) parray.removeChild(parray.firstChild);
+    for (var i = 0; i < array.length; i++) {
+      var num = document.createElement("p");
+      num.textContent = array[i];
+      parray.appendChild(num);
+    }
+  }
+  cantidadarray.addEventListener("click", mostrararray);
+
+/* agrega un nuevo elemento al aray */
+  function agregarNumArray() {
+    var numarray = inputarray.value;
+    if (numarray.trim() != '') {
+      array.push(numarray);
+    }
+  }
+  agregararray.addEventListener("click", agregarNumArray);
+
+/* se fija si tiene el valor o no */
+
+function existeray(){
+  existe = array.includes(inputarray.value);
+  while(parray.firstChild) parray.removeChild(parray.firstChild);
+  if (existe == true) {
+    var exis = document.createElement("p");
+    exis.textContent = "Si existe el contenido: " + parray;
+    parray.appendChild(exis);
+  } else {
+    var exis = document.createElement("p");
+    exis.textContent = "No existe el contenido: " + parray;
+    parray.appendChild(exis);
+  }
+}
+existearray.addEventListener("click", existeray); 
+
+/* elimina el numero seleccionado */
+
+function eliminar(){
+  var indice = array.indexOf(eliminarinputarray);
+  console.log(indice);
+  if (indice == -1) {
+    array.splice(indice, 1);
+  } else {
+    console.log('aaa')
+  }
+
+}
+eliminararray.addEventListener("click", eliminar); 
+
+
+
   </script>
 
   
