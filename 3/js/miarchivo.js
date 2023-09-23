@@ -16,53 +16,54 @@ function agregarTarea() {
     checkbox.style.display = "block";
     nuevaTarea.textContent = tareaTexto;
     nuevaCantidad.textContent = cantidad;
-    guardarStorage(inputTarea.value)
 
     listaTareas.appendChild(nuevaTarea);
     cantidades.appendChild(nuevaCantidad);
     terminado.appendChild(checkbox);
+    guardarStorage(tareaTexto);
     inputTarea.value = "";
   }
 
 }
 
-function guardarStorage(listaTareas) {
-  var storagetarea = localStorage.getItem("textos") || "[]";
-  var arregloDeTextos = JSON.parse(storagetarea);
-  arregloDeTextos.push(listaTareas);
+function guardarStorage(texto) {
+  var datosguardados = localStorage.getItem("textos");
+  var arreglo = JSON.parse(datosguardados);
+  arreglo.push(texto);
+  localStorage.setItem("textos", JSON.stringify(arreglo));
 
-  localStorage.setItem('tareasguardadas', JSON.stringify(arregloDeTextos));
 }
 
-function cargarLocalStorage() {
-  var datosGuardados = localStorage.getItem("textos");
-  if (datosGuardados) {
-      var arregloDeTextos = JSON.parse(datosGuardados);
-      arregloDeTextos.forEach(function (listaTareas) {
-      agregarTareaTabla(listaTareas);
-      });
+window.onload = function () {
+  var datosguardados = localStorage.getItem("textos");
+  if(datosguardados){
+    var arreglo = JSON.parse(datosguardados);
+    arreglo.forEach(function (texto){
+      agregarTareaTabla(texto)
+    })
+
   }
-};
+}
 
-function agregarTareaTabla(inputTarea) {
+function agregarTareaTabla(texto) {
+  cantidad++;
+  var nuevaTarea = document.createElement("li");
+  var nuevaCantidad = document.createElement("li");
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.style.display = "block";
+  nuevaTarea.textContent = texto;
+  nuevaCantidad.textContent = cantidad;
 
-    cantidad ++;
-    var nuevaTarea = document.createElement("li");
-    var nuevaCantidad = document.createElement("li");
-    var checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.style.display = "block";
-    nuevaTarea.textContent = inputTarea;
-    nuevaCantidad.textContent = cantidad;
+  listaTareas.appendChild(nuevaTarea);
+  cantidades.appendChild(nuevaCantidad);
+  terminado.appendChild(checkbox);
 
-    listaTareas.appendChild(nuevaTarea);
-    cantidades.appendChild(nuevaCantidad);
-    terminado.appendChild(checkbox);
   
 }
 
 
-cargarLocalStorage()
+
 botonAgregar.addEventListener("click", agregarTarea);
 
 inputTarea.addEventListener("keypress", function(event) {
